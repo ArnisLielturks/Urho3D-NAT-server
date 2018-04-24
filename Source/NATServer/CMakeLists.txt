@@ -35,5 +35,4 @@ set (TARGET_NAME NATServer)
 # Define source files
 define_source_files (GLOB_CPP_PATTERNS src/*.c* GLOB_H_PATTERNS include/*.h* RECURSE GROUP)
 
-# Setup target with resource copying
 setup_executable ()
