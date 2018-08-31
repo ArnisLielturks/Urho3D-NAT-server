@@ -37,10 +37,10 @@ file (GLOB_RECURSE H_FILES *.h include)
 set (SOURCE_FILES ${CPP_FILES} ${H_FILES})
 
 # Define dependency libs
-set (INCLUDE_DIRS src/include)
+set (INCLUDE_DIRS Source/include)
 
 # Setup target
 setup_library ()
 
-# Install headers for building and using the Urho3D library (install dependency for Urho3D)
-install_header_files (DIRECTORY src/ DESTINATION ${DEST_INCLUDE_DIR}/ThirdParty/SLikeNet FILES_MATCHING PATTERN *.h USE_FILE_SYMLINK)
+# Install headers for building the Urho3D library
+install_header_files (DIRECTORY Source/include/slikenet/ DESTINATION ${DEST_INCLUDE_DIR}/ThirdParty/SLikeNet FILES_MATCHING PATTERN *.h BUILD_TREE_ONLY)    # Note: the trailing slash is significant

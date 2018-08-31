@@ -27,26 +27,26 @@
 #include <Urho3D/UI/Text.h>
 #include <Urho3D/UI/UI.h>
 
-#include "SLikeNet/slikenet/peerinterface.h"
-#include "SLikeNet/slikenet/sleep.h"
+#include "SLikeNet/peerinterface.h"
+#include "SLikeNet/sleep.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <limits> // used for std::numeric_limits
-#include "SLikeNet/slikenet/Kbhit.h"
-#include "SLikeNet/slikenet/MessageIdentifiers.h"
-#include "SLikeNet/slikenet/BitStream.h"
-#include "SLikeNet/slikenet/sleep.h"
-#include "SLikeNet/slikenet/UDPProxyServer.h"
-#include "SLikeNet/slikenet/UDPProxyCoordinator.h"
-#include "SLikeNet/slikenet/NatPunchthroughServer.h"
-#include "SLikeNet/slikenet/SocketLayer.h"
-#include "SLikeNet/slikenet/Getche.h"
-#include "SLikeNet/slikenet/Gets.h"
-#include "SLikeNet/slikenet/statistics.h"
-#include "SLikeNet/slikenet/RelayPlugin.h"
-#include "SLikeNet/slikenet/linux_adapter.h"
-#include "SLikeNet/slikenet/osx_adapter.h"
+#include "SLikeNet/Kbhit.h"
+#include "SLikeNet/MessageIdentifiers.h"
+#include "SLikeNet/BitStream.h"
+#include "SLikeNet/sleep.h"
+#include "SLikeNet/UDPProxyServer.h"
+#include "SLikeNet/UDPProxyCoordinator.h"
+#include "SLikeNet/NatPunchthroughServer.h"
+#include "SLikeNet/SocketLayer.h"
+#include "SLikeNet/Getche.h"
+#include "SLikeNet/Gets.h"
+#include "SLikeNet/statistics.h"
+#include "SLikeNet/RelayPlugin.h"
+#include "SLikeNet/linux_adapter.h"
+#include "SLikeNet/osx_adapter.h"
 
 using namespace Urho3D;
 

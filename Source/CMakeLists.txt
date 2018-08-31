@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2008-2017 the Urho3D project.
+# Copyright (c) 2008-2018 the Urho3D project.
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -64,7 +64,7 @@ if (URHO3D_LIB_TYPE STREQUAL SHARED AND NOT WIN32 AND NOT ANDROID AND NOT IOS AN
 endif ()
 
 # Add targets
-foreach (TARGET FreeType JO LZ4 PugiXml rapidjson SDL StanHull STB)
+foreach (TARGET FreeType LZ4 PugiXml rapidjson SDL StanHull STB)
     add_subdirectory (ThirdParty/${TARGET})
 endforeach ()
 
@@ -143,12 +143,9 @@ endif ()
 add_subdirectory (Tools)
 
 # Urho3D samples
-# Samples are built on iOS/tvOS platform too when enabled. Currently there is no available mechanism to package each sample apps into individual *.apk
-# for Android platform, so we deploy all samples into one apk and use a simple list view activity launcher to select the sample to run
-if (URHO3D_SAMPLES)
-    add_subdirectory (Samples)
-endif ()
+add_subdirectory (Samples)
 
+# Add NAT punchtrough master server
 add_subdirectory (NATServer)
 
 # Urho3D extras
