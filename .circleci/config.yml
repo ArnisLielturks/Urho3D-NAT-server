@@ -5,7 +5,9 @@ jobs:
     steps:
     - checkout
     # Build the image
-    - run: docker build -f Dockerfile .
+    - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
+    - run: docker build -t arnislielturks/slikenet-nat-server:$CIRCLE_BUILD_NUM .
+    - run: docker push arnislielturks/slikenet-nat-server:$CIRCLE_BUILD_NUM
 
 workflows:
   version: 2
