@@ -1,3 +1,6 @@
+[![CircleCI](https://circleci.com/gh/ArnisLielturks/Urho3D-NAT-server.svg?style=svg)](https://circleci.com/gh/ArnisLielturks/Urho3D-NAT-server)
+
+
 # Urho3D-NAT-server
 NAT punchtrough server built on top of Urho3D. This requires SLikeNet networking library to be present in Urho3D build tree.
 Server also support headless mode, but this should be specified in Data/CommandLine.txt file which is automatically loaded on startup or manually setting headless mode in the source code.
