@@ -238,7 +238,7 @@ void Server::Start()
     // Note that the engine can not be reconfigured at this point; only the script name can be specified
 
     GetSubsystem<Engine>()->SetMaxFps(1);
-    SharedPtr<File> commandFile = GetSubsystem<ResourceCache>()->GetFile("Config.txt", false);
+    SharedPtr<File> commandFile = GetSubsystem<ResourceCache>()->GetFile("Data/CommandLine.txt", false);
     if (commandFile) {
         String commandLine = commandFile->ReadLine();
         commandFile->Close();
