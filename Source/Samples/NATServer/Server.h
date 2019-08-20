@@ -26,6 +26,7 @@
 #include <Urho3D/UI/Font.h>
 #include <Urho3D/UI/Text.h>
 #include <Urho3D/UI/UI.h>
+#include "Sample.h"
 
 #include "SLikeNet/peerinterface.h"
 #include "SLikeNet/sleep.h"
@@ -53,9 +54,9 @@ using namespace Urho3D;
 const int SERVER_PORT = 61111;
 
 /// Urho3DPlayer application runs a script specified on the command line.
-class Server : public Application
+class Server : public Sample
 {
-    URHO3D_OBJECT(Server, Application);
+    URHO3D_OBJECT(Server, Sample);
 
 public:
     /// Construct.

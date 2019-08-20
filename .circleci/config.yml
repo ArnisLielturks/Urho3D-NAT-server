@@ -1,0 +1,13 @@
+version: 2
+jobs:
+  build_linux:
+    machine: true
+    steps:
+    - checkout
+    # Build the image
+    - run: docker build -f Dockerfile .
+
+workflows:
+  version: 2
+  build:
+    jobs:

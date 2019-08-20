@@ -185,7 +185,7 @@ static const char* RAKNET_MESSAGEID_STRINGS[] = {
 };
 
 Server::Server(Context* context) :
-    Application(context),
+    Sample(context),
     commandLineRead_(false)
 {
 }
@@ -236,15 +236,24 @@ void Server::Start()
 	// Switch level
     // Reattempt reading the command line from the resource system now if not read before
     // Note that the engine can not be reconfigured at this point; only the script name can be specified
-    if (GetArguments().Empty()) {
-        SharedPtr<File> commandFile = GetSubsystem<ResourceCache>()->GetFile("CommandLine.txt", false);
-        if (commandFile) {
-            String commandLine = commandFile->ReadLine();
-            commandFile->Close();
-            ParseArguments(commandLine, false);
+
+    GetSubsystem<Engine>()->SetMaxFps(1);
+    SharedPtr<File> commandFile = GetSubsystem<ResourceCache>()->GetFile("Config.txt", false);
+    if (commandFile) {
+        String commandLine = commandFile->ReadLine();
+        commandFile->Close();
+        auto arguments = ParseArguments(commandLine, false);
+        for (unsigned i = 0; i < arguments.Size(); ++i) {
+            if (arguments[i].Length() > 1 && arguments[i][0] == '-') {
+                String argument = arguments[i].Substring(1).ToLower();
+                String value = i + 1 < arguments.Size() ? arguments[i + 1] : String::EMPTY;
+                if (argument == "fps") {
+                    GetSubsystem<Engine>()->SetMaxFps(ToInt(value));
+                    URHO3D_LOGINFO("Setting FPS to " + value);
+                }
+            }
         }
     }
-    GetSubsystem<Engine>()->SetMaxFps(1);
 
     CreateUI();
     StartupServer();
@@ -342,8 +351,8 @@ void Server::StartupServer()
     SLNet::SocketDescriptor sd[2];
     sd[0].port = SERVER_PORT;
     sd[1].port = SERVER_PORT + 1;
-    strcpy_s(sd[0].hostAddress, String(String("*:") + String(SERVER_PORT)).CString());
-    strcpy_s(sd[1].hostAddress, String(String("*:") + String(SERVER_PORT)).CString());
+    strcpy(sd[0].hostAddress, String(String("*:") + String(SERVER_PORT)).CString());
+    strcpy(sd[1].hostAddress, String(String("*:") + String(SERVER_PORT)).CString());
     rakPeer_->SetTimeoutTime(10000, UNASSIGNED_SYSTEM_ADDRESS);
     if (rakPeer_->Startup(8096, sd, 2) != SLNet::RAKNET_STARTED) {
         ShutdownServer();

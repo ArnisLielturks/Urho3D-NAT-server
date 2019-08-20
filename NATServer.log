@@ -1,0 +1,7 @@
+[Tue Aug 20 15:02:56 2019] INFO: Opened log file NATServer.log
+[Tue Aug 20 15:02:56 2019] INFO: Created 3 worker threads
+[Tue Aug 20 15:02:56 2019] INFO: Added resource path /home/miegamicis/DevWorkspace/Urho3D-NAT-server/Data/
+[Tue Aug 20 15:02:56 2019] INFO: Added resource path /home/miegamicis/DevWorkspace/Urho3D-NAT-server/CoreData/
+[Tue Aug 20 15:02:56 2019] INFO: Initialized engine
+[Tue Aug 20 15:02:56 2019] INFO: Setting FPS to 20
+[Tue Aug 20 15:02:56 2019] INFO: Server startup

@@ -20,19 +20,14 @@
 # THE SOFTWARE.
 #
 
-# Set project name
-project (NATServer)
-
-# Find Urho3D library
-find_package (Urho3D REQUIRED)
-include_directories (${URHO3D_INCLUDE_DIRS})
-
-# Define dependency libs
-set (INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR})
-
+# Define target name
 set (TARGET_NAME NATServer)
 
 # Define source files
-define_source_files (GLOB_CPP_PATTERNS src/*.c* GLOB_H_PATTERNS include/*.h* RECURSE GROUP)
+define_source_files (EXTRA_H_FILES ${COMMON_SAMPLE_H_FILES})
 
-setup_executable ()
+# Setup target with resource copying
+setup_main_executable ()
+
+# Setup test cases
+setup_test ()
